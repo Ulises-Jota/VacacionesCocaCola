@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+Created-By: Javitoooo
+Main-Class: Bienvenida
+x-COMMENT: Curso Java
