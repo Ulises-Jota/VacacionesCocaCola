@@ -15,6 +15,8 @@ public class Principal extends JFrame implements ActionListener{
   private JTextArea textarea1;
   String nombreAdministrador = "";
 
+  // El constructor setea la ventana 'Principal' y define todos sus componentes.
+  // Crea un objeto de tipo Bienvenida para obtener el texto que ingres√≥ el usuario.
   public Principal(){
     setLayout(null);
     setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -104,7 +106,7 @@ public class Principal extends JFrame implements ActionListener{
     labelBienvenido.setForeground(new Color(255,255,255));
     add(labelBienvenido);
 
-    labelTitle = new JLabel("Datos del trabajador para el c·lculo de vacaciones");
+    labelTitle = new JLabel("Datos del trabajador para el c√°lculo de vacaciones");
     labelTitle.setBounds(45,140,900,25);
     labelTitle.setFont(new Font("Andale Mono", 0, 24));
     labelTitle.setForeground(new Color(255,255,255));
@@ -162,11 +164,11 @@ public class Principal extends JFrame implements ActionListener{
     comboDepartamento.setForeground(new java.awt.Color(255,0,0));
     add(comboDepartamento);
     comboDepartamento.addItem("");
-    comboDepartamento.addItem("AtenciÛn al Cliente");
-    comboDepartamento.addItem("Departamento de LogÌstica");
+    comboDepartamento.addItem("Atenci√≥n al Cliente");
+    comboDepartamento.addItem("Departamento de Log√≠stica");
     comboDepartamento.addItem("Departamento de Gerencia");
 
-    labelAntiguedad = new JLabel("Selecciona la Antig¸edad:");
+    labelAntiguedad = new JLabel("Selecciona la Antig√ºedad:");
     labelAntiguedad.setBounds(220,248,180,25);
     labelAntiguedad.setFont(new Font("Andale Mono", 1, 12));
     labelAntiguedad.setForeground(new Color(255,255,255));
@@ -179,11 +181,11 @@ public class Principal extends JFrame implements ActionListener{
     comboAntiguedad.setForeground(new java.awt.Color(255,0,0));
     add(comboAntiguedad);
     comboAntiguedad.addItem("");
-    comboAntiguedad.addItem("1 aÒo de servicio");
-    comboAntiguedad.addItem("2 a 6 aÒos de servicio");
-    comboAntiguedad.addItem("7 aÒos o m·s de servicio");
+    comboAntiguedad.addItem("1 a√±o de servicio");
+    comboAntiguedad.addItem("2 a 6 a√±os de servicio");
+    comboAntiguedad.addItem("7 a√±os o m√°s de servicio");
 
-    labelResultado = new JLabel("Resultado del c·lculo:");
+    labelResultado = new JLabel("Resultado del c√°lculo:");
     labelResultado.setBounds(220,307,180,25);
     labelResultado.setFont(new Font("Andale Mono", 1, 12));
     labelResultado.setForeground(new Color(255,255,255));
@@ -194,18 +196,19 @@ public class Principal extends JFrame implements ActionListener{
     textarea1.setBackground(new Color(224,224,224));
     textarea1.setFont(new Font("Andale Mono", 1, 11));
     textarea1.setForeground(new Color(255,0,0));
-    textarea1.setText("\n   AquÌ aparece el resultado del c·lculo de las vacaciones.");
+    textarea1.setText("\n   Aqu√≠ aparece el resultado del c√°lculo de las vacaciones.");
     scrollpane1 = new JScrollPane(textarea1);
     scrollpane1.setBounds(220,333,385,90);
     add(scrollpane1);
 
-    labelfooter = new JLabel("©2017 The Coca-Cola Company | Todos los derechos reservados");
+    labelfooter = new JLabel("¬©2017 The Coca-Cola Company | Todos los derechos reservados");
     labelfooter.setBounds(135,445,500,30);
     labelfooter.setFont(new java.awt.Font("Andale Mono", 1, 12));
     labelfooter.setForeground(new java.awt.Color(255,255,255));
     add(labelfooter);
   }
 
+  // El m√©todo actionPerformed define el comportamiento del programa seg√∫n qu√© menuItem se seleccione
   public void actionPerformed(ActionEvent e){
     if(e.getSource() == miCalculo){
 
@@ -215,6 +218,7 @@ public class Principal extends JFrame implements ActionListener{
       String Departamento = comboDepartamento.getSelectedItem().toString();
       String Antiguedad = comboAntiguedad.getSelectedItem().toString();
 
+      // Valida que se completen todos los campos
       if(nombreTrabajador.equals("") || AP.equals("") || AM.equals("") ||
          Departamento.equals("") || Antiguedad.equals("")){
 
@@ -222,59 +226,60 @@ public class Principal extends JFrame implements ActionListener{
 
       } else {
 
-         if(Departamento.equals("AtenciÛn al Cliente")){
+        // Los tres if que siguen, son para realizar los c√°lculos correspondientes seg√∫n Departamento y Antig√ºedad.
+         if(Departamento.equals("Atenci√≥n al Cliente")){
 
-                         if(Antiguedad.equals("1 aÒo de servicio")){
+                         if(Antiguedad.equals("1 a√±o de servicio")){
                                  textarea1.setText("\n   El trabajador " + nombreTrabajador + " " + AP + " " + AM +
                                                    "\n   quien trabaja en " + Departamento + " con " + Antiguedad +
-                                                   "\n   recibe 6 dÌas de vacaciones.");
+                                                   "\n   recibe 6 d√≠as de vacaciones.");
                          }
-                         if(Antiguedad.equals("2 a 6 aÒos de servicio")){
+                         if(Antiguedad.equals("2 a 6 a√±os de servicio")){
                                  textarea1.setText("\n   El trabajador " + nombreTrabajador + " " + AP + " " + AM +
                                                    "\n   quien trabaja en " + Departamento + " con " + Antiguedad +
-                                                   "\n   recibe 14 dÌas de vacaciones.");
+                                                   "\n   recibe 14 d√≠as de vacaciones.");
                          }
-                         if(Antiguedad.equals("7 aÒos o m·s de servicio")){
+                         if(Antiguedad.equals("7 a√±os o m√°s de servicio")){
                                  textarea1.setText("\n   El trabajador " + nombreTrabajador + " " + AP + " " + AM +
                                                    "\n   quien trabaja en " + Departamento + " con " + Antiguedad +
-                                                   "\n   recibe 20 dÌas de vacaciones.");
+                                                   "\n   recibe 20 d√≠as de vacaciones.");
                          }
 
          }
-         if(Departamento.equals("Departamento de LogÌstica")){
+         if(Departamento.equals("Departamento de Log√≠stica")){
 
-                         if(Antiguedad.equals("1 aÒo de servicio")){
+                         if(Antiguedad.equals("1 a√±o de servicio")){
                                  textarea1.setText("\n   El trabajador " + nombreTrabajador + " " + AP + " " + AM +
                                                    "\n   quien trabaja en " + Departamento + " con " + Antiguedad +
-                                                   "\n   recibe 7 dÌas de vacaciones.");
+                                                   "\n   recibe 7 d√≠as de vacaciones.");
                          }
-                         if(Antiguedad.equals("2 a 6 aÒos de servicio")){
+                         if(Antiguedad.equals("2 a 6 a√±os de servicio")){
                                  textarea1.setText("\n   El trabajador " + nombreTrabajador + " " + AP + " " + AM +
                                                    "\n   quien trabaja en " + Departamento + " con " + Antiguedad +
-                                                   "\n   recibe 15 dÌas de vacaciones.");
+                                                   "\n   recibe 15 d√≠as de vacaciones.");
                          }
-                         if(Antiguedad.equals("7 aÒos o m·s de servicio")){
+                         if(Antiguedad.equals("7 a√±os o m√°s de servicio")){
                                  textarea1.setText("\n   El trabajador " + nombreTrabajador + " " + AP + " " + AM +
                                                    "\n   quien trabaja en " + Departamento + " con " + Antiguedad +
-                                                   "\n   recibe 22 dÌas de vacaciones.");
+                                                   "\n   recibe 22 d√≠as de vacaciones.");
                          }
          }
          if(Departamento.equals("Departamento de Gerencia")){
 
-                         if(Antiguedad.equals("1 aÒo de servicio")){
+                         if(Antiguedad.equals("1 a√±o de servicio")){
                                  textarea1.setText("\n   El trabajador " + nombreTrabajador + " " + AP + " " + AM +
                                                    "\n   quien trabaja en " + Departamento + " con " + Antiguedad +
-                                                   "\n   recibe 10 dÌas de vacaciones.");
+                                                   "\n   recibe 10 d√≠as de vacaciones.");
                          }
-                         if(Antiguedad.equals("2 a 6 aÒos de servicio")){
+                         if(Antiguedad.equals("2 a 6 a√±os de servicio")){
                                  textarea1.setText("\n   El trabajador " + nombreTrabajador + " " + AP + " " + AM +
                                                    "\n   quien trabaja en " + Departamento + " con " + Antiguedad +
-                                                   "\n   recibe 20 dÌas de vacaciones.");
+                                                   "\n   recibe 20 d√≠as de vacaciones.");
                          }
-                         if(Antiguedad.equals("7 aÒos o m·s de servicio")){
+                         if(Antiguedad.equals("7 a√±os o m√°s de servicio")){
                                  textarea1.setText("\n   El trabajador " + nombreTrabajador + " " + AP + " " + AM +
                                                    "\n   quien trabaja en " + Departamento + " con " + Antiguedad +
-                                                   "\n   recibe 30 dÌas de vacaciones.");
+                                                   "\n   recibe 30 d√≠as de vacaciones.");
                          }
          }
       }
@@ -296,7 +301,7 @@ public class Principal extends JFrame implements ActionListener{
        txtAMaternoTrabajador.setText("");
        comboDepartamento.setSelectedIndex(0);
        comboAntiguedad.setSelectedIndex(0);
-       textarea1.setText("\n   AquÌ aparece el resultado del c·lculo de las vacaciones.");
+       textarea1.setText("\n   Aqu√≠ aparece el resultado del c√°lculo de las vacaciones.");
 
     }
     if(e.getSource() == miSalir){
