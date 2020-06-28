@@ -12,6 +12,7 @@ public class Licencia extends JFrame implements ActionListener, ChangeListener{
   private JTextArea textarea1;
   String nombre = "";
 
+  // El constructor define a la pantalla de Licencia de uso y setea todos sus componentes.
   public Licencia(){
     setLayout(null);
     setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -20,7 +21,7 @@ public class Licencia extends JFrame implements ActionListener, ChangeListener{
     Bienvenida ventanaBienvenida = new Bienvenida();
     nombre = ventanaBienvenida.texto;
 
-    label1 = new JLabel("T蒖MINOS Y CONDICIONES");
+    label1 = new JLabel("T脡RMINOS Y CONDICIONES");
     label1.setBounds(215,5,200,30);
     label1.setFont(new Font("Andale Mono", 1, 14));
     label1.setForeground(new Color(0,0,0));
@@ -29,12 +30,12 @@ public class Licencia extends JFrame implements ActionListener, ChangeListener{
     textarea1 = new JTextArea();
     textarea1.setEditable(false);
     textarea1.setFont(new Font("Andale Mono", 0, 9));
-    textarea1.setText("\n\n          T蒖MINOS Y CONDICIONES" +
-                      "\n\n          A. PROHIBIDA SU VENTA O DISTRIBUCI覰 SIN AUTORIZACI覰 DE JAVIER TAPIA" +
-                      "\n          B. PROHIBIDA LA ALTERACI覰 DEL C覦IGO FUENTE O DISE袿 DE LAS INTERFACES GR罠ICAS." +
+    textarea1.setText("\n\n          T脡RMINOS Y CONDICIONES" +
+                      "\n\n          A. PROHIBIDA SU VENTA O DISTRIBUCI脫N SIN AUTORIZACI脫N DE JAVIER TAPIA" +
+                      "\n          B. PROHIBIDA LA ALTERACI脫N DEL C脫DIGO FUENTE O DISE脩O DE LAS INTERFACES GR脕FICAS." +
                       "\n          C. JAVIER TAPIA NO SE HACE RESPONSABLE DEL MAL USO DE ESTE SOFTWARE." +
-                      "\n\n          LOS ACUERDOS LEGALES EXPUESTOS A CONTINUACI覰, RIGEN EL USO QUE USTED HAGA DE ESTE SOFTWARE" +
-                      "\n          SI USTED NO ACEPTA ESTOS T蒖MINOS, HAGA CLIC EN <<NO ACEPTO>> Y NO UTILICE ESTE SOFTWARE.");
+                      "\n\n          LOS ACUERDOS LEGALES EXPUESTOS A CONTINUACI脫N, RIGEN EL USO QUE USTED HAGA DE ESTE SOFTWARE" +
+                      "\n          SI USTED NO ACEPTA ESTOS T脡RMINOS, HAGA CLIC EN <<NO ACEPTO>> Y NO UTILICE ESTE SOFTWARE.");
     scrollpane1 = new JScrollPane(textarea1);
     scrollpane1.setBounds(10,40,575,200);
     add(scrollpane1);
@@ -62,6 +63,8 @@ public class Licencia extends JFrame implements ActionListener, ChangeListener{
     add(label2);
   }
 
+  // El m茅todo stateChanged valida si est谩 tildado el JCheckBox de aceptaci贸n. Si es as铆, 
+  // habilita el bot贸n de 'Continuar' y deshabilita el de 'No Acepto'. Si no, hace lo contrario.
   public void stateChanged(ChangeEvent e){
     if(check1.isSelected() == true){
       boton1.setEnabled(true);
@@ -72,6 +75,8 @@ public class Licencia extends JFrame implements ActionListener, ChangeListener{
     }
   }
 
+  // El m茅todo actionPerformed define el comportamiento seg煤n se oprima el bot贸n 'Continuar' (pasa a la pantalla 'Principal')
+  // o el bot贸n 'No Acepto' (pasa a la pantalla 'Bienvenida')
   public void actionPerformed(ActionEvent e){
     if(e.getSource() == boton1){
        Principal ventanaPrincipal = new Principal();
