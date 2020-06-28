@@ -9,6 +9,7 @@ public class Bienvenida extends JFrame implements ActionListener{
   private JButton boton1;
   public static String texto = "";
 
+  // El constructor define la interfaz gráfica y todos sus componentes.
   public Bienvenida(){
     setLayout(null);
     setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -33,7 +34,7 @@ public class Bienvenida extends JFrame implements ActionListener{
     label3.setForeground(new Color(255,255,255));
     add(label3);
 
-    label4 = new JLabel("�2017 The Coca-Cola Company");
+    label4 = new JLabel("©2017 The Coca-Cola Company");
     label4.setBounds(85,375,300,30);
     label4.setFont(new Font("Andale Mono", 1, 12));
     label4.setForeground(new Color(255,255,255));
@@ -55,6 +56,8 @@ public class Bienvenida extends JFrame implements ActionListener{
     add(boton1);
   }
 
+  // Este método define el comportamiento del programa al apretar el botón Ingresar (lanzar la pantalla de Licencia de uso). 
+  // A su vez, valida que el usuario ingrese un nombre. Caso contrario, muestra un mensaje.
   public void actionPerformed(ActionEvent e){
     if(e.getSource() == boton1){
       texto = textfield1.getText().trim();
@@ -71,6 +74,7 @@ public class Bienvenida extends JFrame implements ActionListener{
     }
   }
 
+  // El método main llama al constructor de la clase Bienvenida y setea las características que debe tener la pantalla.
   public static void main(String args[]){
     Bienvenida ventanabienvenida = new Bienvenida();
     ventanabienvenida.setBounds(0,0,350,450);
